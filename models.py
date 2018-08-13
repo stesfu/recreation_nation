@@ -1,0 +1,1 @@
+LMU Sporting Locations ["Baseball Lion Cage", "Burns Recreation Center", "Gersten Pavilion", "Lions Athletic Center", "Page Baseball Stadium", "Smith Field", "Sullivan Field", "Tennis Center", "University Pool", "McKay Hall", "Del Rey North", "Del Rey South", "Desmond", "Doheny", "Rosecrans", "Sullivan", "Whelan"]
