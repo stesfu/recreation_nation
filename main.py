@@ -45,7 +45,7 @@ class LoginHandler(webapp2.RequestHandler):
                 self.response.write(new_user_template.render(fields))
             else:
                 # direct existing user to feed
-                self.redirect('/feed')
+                self.redirect('/welcome')
         else:
             pass
             # Ask user to sign in to Google
