@@ -2,15 +2,16 @@ import webapp2
 import os
 import jinja2
 
-jinja_env = jinja2.Environment(
+jinja_current_directory = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-class MainHandler(webapp2.RequestHandler):
+class LoginHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write("Welcome to Hogwarts' Online Portal")
+        login = jinja_current_directory.get_template("templates/login_screen.html")
+        self.response.write(login.render())
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
+    ('/', LoginHandler),
 ], debug=True)
