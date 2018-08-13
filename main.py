@@ -1,6 +1,7 @@
 import webapp2
 import os
 import jinja2
+import time
 from RecNation_models import Post, User
 from content_management import populate_feed, logout_url, login_url
 from google.appengine.ext import ndb
@@ -17,11 +18,39 @@ jinja_current_directory = jinja2.Environment(
         #self.response.write("Welcome to Recreation Nation")
 
 class WelcomeHandler(webapp2.RequestHandler):
-    def post(self):
+    def get(self):
         welcome_template = jinja_current_directory.get_template(
             "templates/welcome.html")
-        self.response.write(welcome_template.render())
 
+        user = users.get_current_user()
+        current_user = User.query().filter(User.email == user.email()).get()
+        fields = {
+            "username": current_user.username,
+            "logout_url": logout_url,
+        }
+        self.response.write(welcome_template.render(fields))
+
+    def post(self):
+
+        user = users.get_current_user()
+        if not user:
+            self.redirect('/')
+        current_user = User.query().filter(User.email == user.email()).get()
+        if not current_user:
+            # upon new user form submission, create new user and store in datastore
+            new_user_entry = User(
+                name = self.request.get("name"),
+                username = self.request.get("username"),
+                email = user.email(),
+            )
+            new_user_entry.put()
+            current_user = new_user_entry
+        else:
+            # if not a new user, existing user submitted a post from feed
+            new_post = Post(author= current_user.key, content= self.request.get("user_post"))
+            new_post.put()
+        time.sleep(.2)
+        self.redirect('/welcome')
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
@@ -48,30 +77,9 @@ class LoginHandler(webapp2.RequestHandler):
                 # direct existing user to feed
                 self.redirect('/welcome')
         else:
-            pass
             # Ask user to sign in to Google
             self.response.write(google_login_template.render({ "login_url": login_url }))
 
-    def post(self):
-        user = users.get_current_user()
-        if not user:
-            self.redirect('/')
-        current_user = User.query().filter(User.email == user.email()).get()
-        if not current_user:
-            # upon new user form submission, create new user and store in datastore
-            new_user_entry = User(
-                name = self.request.get("name"),
-                username = self.request.get("username"),
-                email = user.email(),
-            )
-            new_user_entry.put()
-            current_user = new_user_entry
-        else:
-            # if not a new user, existing user submitted a post from feed
-            new_post = Post(author= current_user.key, content= self.request.get("user_post"))
-            new_post.put()
-        time.sleep(.2)
-        self.redirect('/welcome')
 
 app = webapp2.WSGIApplication([
     ('/', LoginHandler),

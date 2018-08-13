@@ -72,3 +72,7 @@ a:link {
   grid-row: 4;
   grid-column: 3;
 }
+
+#logout{
+  font-size: 18px;
+}
