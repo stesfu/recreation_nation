@@ -52,6 +52,18 @@ class WelcomeHandler(webapp2.RequestHandler):
         time.sleep(.2)
         self.redirect('/welcome')
 
+class SignUpHandler(webapp2.RequestHandler):
+    def get(self):
+        signup_template = jinja_current_directory.get_template(
+            "templates/signup.html")
+        self.response.write(signup_template.render())
+
+class ForumHandler(webapp2.RequestHandler):
+    def get(self):
+        forum_template = jinja_current_directory.get_template(
+            "templates/forum.html")
+        self.response.write(forum_template.render())
+
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
         login = jinja_current_directory.get_template("templates/login_screen.html")
@@ -84,4 +96,6 @@ class LoginHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', LoginHandler),
     ('/welcome', WelcomeHandler),
+    ('/signup', SignUpHandler),
+    ('/forum', ForumHandler),
 ], debug=True)
