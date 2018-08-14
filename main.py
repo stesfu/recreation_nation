@@ -65,15 +65,37 @@ class SignUpHandler(webapp2.RequestHandler):
 
 class ForumHandler(webapp2.RequestHandler):
     def get(self):
-        forum_template = jinja_current_directory.get_template(
-            "templates/forum.html")
         user = users.get_current_user()
+        print("*********" + str(user) + "***********")
+        if user is None:
+            self.redirect('/')
+            return # lol idk if this is ok?? it works I guess
         current_user = User.query().filter(User.email == user.email()).get()
-        fields = {
-            "username": current_user.username,
-            "logout_url": logout_url,
-        }
-        self.response.write(forum_template.render(fields))
+        forum_fields = populate_feed(current_user)
+        start_forum = jinja_current_directory.get_template("templates/forum.html")
+        self.response.write(start_forum.render(forum_fields))
+
+    def post(self):
+        user = users.get_current_user()
+        if user is None:
+            self.redirect('/')
+            return # lol idk if this is ok?? it works I guess
+        current_user = User.query().filter(User.email == user.email()).get()
+        if not current_user:
+            # upon new user form submission, create new user and store in datastore
+            new_user_entry = User(
+                name = self.request.get("name"),
+                username = self.request.get("username"),
+                email = user.email(),
+            )
+            new_user_entry.put()
+            current_user = new_user_entry
+        else:
+            # if not a new user, existing user submitted a post from feed
+            new_post = Post(author= current_user.key, content= self.request.get("user_post"))
+            new_post.put()
+        time.sleep(.2)
+        self.redirect('/forum')
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):

@@ -3,7 +3,7 @@ body {
   margin: 0;
   display: grid;
   grid-template-columns: 10fr 10fr 10fr;
-  grid-template-rows: 4fr 1.5fr 10fr 10fr;
+  grid-template-rows: 2fr 40px 10fr 10fr;
   grid-gap: 5px;
 
 }
