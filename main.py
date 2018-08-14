@@ -60,6 +60,7 @@ class SignUpHandler(webapp2.RequestHandler):
         fields = {
             "username": current_user.username,
             "logout_url": logout_url,
+            "email" : current_user.email
         }
         self.response.write(signup_template.render(fields))
 
