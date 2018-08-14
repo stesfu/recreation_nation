@@ -57,3 +57,6 @@ a:link {
   text-align: center;
   grid-column: 3;
 }
+#logout{
+  font-size: 18px;
+}

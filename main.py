@@ -56,13 +56,25 @@ class SignUpHandler(webapp2.RequestHandler):
     def get(self):
         signup_template = jinja_current_directory.get_template(
             "templates/signup.html")
-        self.response.write(signup_template.render())
+        user = users.get_current_user()
+        current_user = User.query().filter(User.email == user.email()).get()
+        fields = {
+            "username": current_user.username,
+            "logout_url": logout_url,
+        }
+        self.response.write(signup_template.render(fields))
 
 class ForumHandler(webapp2.RequestHandler):
     def get(self):
         forum_template = jinja_current_directory.get_template(
             "templates/forum.html")
-        self.response.write(forum_template.render())
+        user = users.get_current_user()
+        current_user = User.query().filter(User.email == user.email()).get()
+        fields = {
+            "username": current_user.username,
+            "logout_url": logout_url,
+        }
+        self.response.write(forum_template.render(fields))
 
 class LoginHandler(webapp2.RequestHandler):
     def get(self):
