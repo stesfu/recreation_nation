@@ -19,25 +19,24 @@ jinja_current_directory = jinja2.Environment(
 
 class WelcomeHandler(webapp2.RequestHandler):
     def get(self):
-        welcome_template = jinja_current_directory.get_template(
-            "templates/welcome.html")
-
         user = users.get_current_user()
+        if not user:
+            self.redirect('/')
+            return
         current_user = User.query().filter(User.email == user.email()).get()
         fields = {
             "username": current_user.username,
             "logout_url": logout_url,
         }
+        welcome_template = jinja_current_directory.get_template("templates/welcome.html")
         self.response.write(welcome_template.render(fields))
 
     def post(self):
-
         user = users.get_current_user()
         if not user:
             self.redirect('/')
         current_user = User.query().filter(User.email == user.email()).get()
         if not current_user:
-            # upon new user form submission, create new user and store in datastore
             new_user_entry = User(
                 name = self.request.get("name"),
                 username = self.request.get("username"),
@@ -46,7 +45,6 @@ class WelcomeHandler(webapp2.RequestHandler):
             new_user_entry.put()
             current_user = new_user_entry
         else:
-            # if not a new user, existing user submitted a post from feed
             new_post = Post(author= current_user.key, content= self.request.get("user_post"))
             new_post.put()
         time.sleep(.2)
