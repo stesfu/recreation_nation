@@ -9,7 +9,7 @@ body {
 
 }
 div,h1{
-  background-color: rgb(108,183,113);
+  background-color: rgb(207,103,102);
 }
 
 a:hover {
@@ -62,11 +62,13 @@ a:link {
 #schedule{
   grid-row:3 /span 2;
   grid-column: 1 / span 2;
+  text-align: center;
 }
 
 #playerinfo{
   grid-row: 3;
   grid-column: 3;
+  padding-top: 10px;
   text-align: center;
 }
 
