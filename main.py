@@ -27,6 +27,7 @@ class WelcomeHandler(webapp2.RequestHandler):
         fields = {
             "username": current_user.username,
             "logout_url": logout_url,
+            "email" : current_user.email
         }
         welcome_template = jinja_current_directory.get_template("templates/welcome.html")
         self.response.write(welcome_template.render(fields))
