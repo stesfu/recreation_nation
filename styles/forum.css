@@ -58,5 +58,7 @@ a:link {
   grid-column: 3;
 }
 #logout{
+  text-align: right;
   font-size: 18px;
+  padding-right: 32px;
 }
