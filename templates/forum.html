@@ -9,7 +9,7 @@
   <body>
     <div id="h1">
       <section id="logout">
-        Signed in as {{ username }}. <a id="sign_out_button" href="{{ logout_url }}"><span>Sign out?</span></a>
+        Signed in as {{ username }}. <a id="sign_out_button" href="{{ sign_out }}"><span>Sign out?</span></a>
       </section>
       RECREATION NATION
     </div>
@@ -32,7 +32,6 @@
         <h2 class="user_info_content" id="user_name">Name: {{ user_name }}</h2>
         <h2 class="user_info_content" id="username">Username: {{ username }}</h2>
         <p class="user_info_content">Number of Posts: {{ post_count }} </p>
-        <a class="user_info_content" href="{{sign_out}}">Sign out</a>
       </div>
       <div id="post">
         <form method="post">

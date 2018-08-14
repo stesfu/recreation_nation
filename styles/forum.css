@@ -68,7 +68,7 @@ a:link {
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  box-shadow:  0 6px 10px 0 #00b200;
+  box-shadow:  0 6px 10px 0 black;
   grid-column: 1 /span 3;
   grid-row: 3;
 }
@@ -77,20 +77,20 @@ a:link {
     margin: 0px 0px 5px 5px;
 }
 #post {
-  height: 20%;
+  height: 50%;
   background-color: white;
   margin: 10px;
   padding: 0px 0px 0px 10px;
   height: 200px;
   padding: 5px;
   border-radius: 10px;
-  box-shadow:  0 6px 10px 0 #00b200;
+  box-shadow:  0 6px 10px 0 black;
 }
 .textpost {
   background-color: white;
   height: 150px;
   margin: 10px;
-  box-shadow:  0 6px 10px 0 #00b200;
+  box-shadow:  0 6px 10px 0 black;
   padding: 5px 30px 5px 30px;
   border-radius: 30px;
   font-size: 20px;
@@ -100,7 +100,8 @@ a:link {
 #console {
   grid-row: 3;
   grid-column: 1 / span 1;
-  border-radius: 5px;
+  border-radius: 0;
+  background-color: rgb(207,103,102);
 }
 #feed {
   grid-row: 3;
@@ -108,4 +109,5 @@ a:link {
   gap: 20px -10px;
   overflow: auto;
   margin: 0;
+  background-color: rgb(207,103,102);
 }
