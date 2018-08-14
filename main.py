@@ -22,6 +22,7 @@ class WelcomeHandler(webapp2.RequestHandler):
         user = users.get_current_user()
         if not user:
             self.redirect('/')
+            return
         current_user = User.query().filter(User.email == user.email()).get()
         fields = {
             "username": current_user.username,
