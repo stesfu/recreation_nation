@@ -26,9 +26,9 @@ body{
 .boxed {
   border: 10px solid white;
   position: fixed;
-  margin: 100px 250px 100px 250px;
-  height: 600px;
-  width: 1200px;
+  margin: 100pt 100pt 200pt 135pt;
+  height: 500pt;
+  width: 1000pt;
 }
 
 a:hover {
