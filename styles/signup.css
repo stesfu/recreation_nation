@@ -9,11 +9,7 @@ body {
 }
 div,h1{
   background-color: rgb(28,56,88);
-<<<<<<< HEAD
-  color: white;;
-=======
   color: white;
->>>>>>> 262868edb2a2a70a2d26a6cff0a49cd63982549e
 }
 
 a:hover {
