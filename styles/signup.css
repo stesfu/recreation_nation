@@ -71,4 +71,14 @@ a:link {
 }
 #events{
   grid-column: 1 / span 2;
+  overflow: auto;
+}
+#playerinfo{
+  grid-row: 3;
+  grid-column: 3;
+  padding-top: 10px;
+  text-align: center;
+}
+#profPic{
+  width: 100px;
 }

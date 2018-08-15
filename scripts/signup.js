@@ -10,10 +10,7 @@ const SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
 const authorizeButton = document.getElementById('authorize_button');
 
-const events = document.querySelector('#listedEvents')
-
-
-events.innerHTML = listUpcomingEvents()
+const events = document.querySelector('#content')
 
 
 /**
@@ -86,24 +83,65 @@ function listUpcomingEvents() {
     'timeMin': (new Date()).toISOString(),
     'showDeleted': false,
     'singleEvents': true,
-    'maxResults': 10,
+    'maxResults': 30,
     'orderBy': 'startTime'
   }).then(function(response) {
     var events = response.result.items;
-    appendPre('Upcoming events:');
+    //appendPre('Upcoming events:');
     //appendPre("\n");
 
     if (events.length > 0) {
       for (i = 0; i < events.length; i++) {
         var event = events[i];
         var when = event.start.dateTime;
+        //date = timeStamp(when)
         if (!when) {
           when = event.start.date;
         }
-        appendPre("    " + (i+1) + ". " + event.summary);
+        var d = new Date(when);
+        //var formatted_time = d.toLocaleString();
+        appendPre("    " + (i+1) + ". " + event.summary + " on " + formatTime(d));
+
+        appendPre('\n');
       }
     } else {
       appendPre('No upcoming events found.');
     }
   });
+}
+
+//Creates a readable timestamp
+function formatTime(time) {
+// Create a date object with the current time
+  var now = time;
+
+// Create an array with the current month, day and time
+  var date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
+
+// Create an array with the current hour, minute and second
+  var time = [ now.getHours(), now.getMinutes()];
+
+// Determine AM or PM suffix based on the hour
+  var suffix = ( time[0] < 12 ) ? "AM" : "PM";
+
+// Convert hour from military time
+  time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
+
+// If hour is 0, set it to 12
+  time[0] = time[0] || 12;
+
+// If seconds and minutes are less than 10, add a zero
+  for ( var i = 1; i < 3; i++ ) {
+    if ( time[i] < 10 ) {
+      time[i] = "0" + time[i];
+    }
+  }
+
+// Return the formatted string
+  return date.join("/") + " at " + time.join(":") + " " + suffix;
+}
+function imgError(image) {
+    image.onerror = "";
+    image.src = "/media/noimage.jpg";
+    return true;
 }
