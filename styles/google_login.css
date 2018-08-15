@@ -20,10 +20,10 @@ body{
   background-image: url("/media/lmulion.jpg");
   background-size: cover;
   position: absolute;
-  top:20%;
-  right: 50%;
-  bottom: 20%;
-  left: 20%;
+  top: 10%;
+  right: 10%;
+  bottom: 10%;
+  left: 10%;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
