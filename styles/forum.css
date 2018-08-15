@@ -2,12 +2,16 @@ body {
   height:100vh;
   margin: 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 40px 10fr;
+  grid-template-columns: 10fr 10fr 10fr;
+  grid-template-rows: 4fr 1.5fr 10fr 10fr;
   grid-gap: 5px;
 }
 div,h1{
+<<<<<<< HEAD
+  background-color: rgb(108,183,113);
+=======
   background-color: rgb(28,56,88);
+>>>>>>> 262868edb2a2a70a2d26a6cff0a49cd63982549e
 }
 
 a:hover {
@@ -62,6 +66,8 @@ a:link {
   font-size: 18px;
   padding-right: 32px;
 }
+<<<<<<< HEAD
+=======
 #user_info {
   /* height: 20%; */
   background-color: white;
@@ -111,3 +117,4 @@ a:link {
   margin: 0;
   background-color: rgb(28,56,88);
 }
+>>>>>>> 262868edb2a2a70a2d26a6cff0a49cd63982549e
