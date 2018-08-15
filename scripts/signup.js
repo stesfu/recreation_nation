@@ -47,7 +47,6 @@ function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     authorizeButton.style.display = 'none';
     listUpcomingEvents();
-    createButtons();
   } else {
     authorizeButton.style.display = 'block';
   }
@@ -103,9 +102,15 @@ function listUpcomingEvents() {
         var node = document.createElement("LI");                 // Create a <li> node
         var textnode = document.createTextNode("" + event.summary + " on " + formatTime(d) + "\t\t\t\t\t\t");
         node.appendChild(textnode);
-        const button = document.createElement("button");
-        button.innerHTML = "Sign Up for: " + event.summary;
-        node.appendChild(button);
+
+        var checkbox=document.createElement("input");
+        checkbox.type="checkbox";
+        checkbox.id="checkbox"+(i+1);
+        const label = document.createElement("label");
+        label.for="checkbox"+(i+1);
+        label.innerHTML = "Sign Up for: " + event.summary;
+        // button.setAttribute("id", "buttons");
+        node.appendChild(checkbox);
         document.getElementById("content").appendChild(node);
         //appendPre("    " + (i+1) + ". " + event.summary + " on " + formatTime(d));
 
@@ -116,12 +121,6 @@ function listUpcomingEvents() {
     }
   });
 }
-
-function createButtons(){
-   const button = document.querySelectorAll('LI');
-   button.forEach
- }
-
 
 
 //Creates a readable timestamp
@@ -158,4 +157,10 @@ function imgError(image) {
     image.onerror = "";
     image.src = "/media/noimage.jpg";
     return true;
+}
+
+// allButtons.forEach(item => item.addEventListener("click", alert("CLICKED!")));
+
+function addEvent(){
+  console.log("Gottem");
 }
