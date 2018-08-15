@@ -1,16 +1,20 @@
 // Client ID and API key from the Developer Console
-var CLIENT_ID = '859286274012-0p1oibrl1m8ublgr6emo3s42fj36ck0j.apps.googleusercontent.com';
-var API_KEY = 'AIzaSyDM0q8U_ydQ7wJv-FB7F71HSJpHyQhtlco';
+const CLIENT_ID = '859286274012-7aq08cpvbob3a2p340r6lrm7h545nq4g.apps.googleusercontent.com';
 
 // Array of API discovery doc URLs for APIs used by the quickstart
-var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
 
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
-var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+const SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
-var authorizeButton = document.getElementById('authorize_button');
-var signoutButton = document.getElementById('signout_button');
+const authorizeButton = document.getElementById('authorize_button');
+
+const events = document.querySelector('#listedEvents')
+
+
+events.innerHTML = listUpcomingEvents()
+
 
 /**
  *  On load, called to load the auth2 library and API client library.
@@ -36,7 +40,6 @@ function initClient() {
     // Handle the initial sign-in state.
     updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
     authorizeButton.onclick = handleAuthClick;
-    signoutButton.onclick = handleSignoutClick;
   });
 }
 
@@ -47,11 +50,9 @@ function initClient() {
 function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     authorizeButton.style.display = 'none';
-    signoutButton.style.display = 'block';
     listUpcomingEvents();
   } else {
     authorizeButton.style.display = 'block';
-    signoutButton.style.display = 'none';
   }
 }
 
@@ -60,13 +61,6 @@ function updateSigninStatus(isSignedIn) {
  */
 function handleAuthClick(event) {
   gapi.auth2.getAuthInstance().signIn();
-}
-
-/**
- *  Sign out the user upon button click.
- */
-function handleSignoutClick(event) {
-  gapi.auth2.getAuthInstance().signOut();
 }
 
 /**
@@ -97,6 +91,7 @@ function listUpcomingEvents() {
   }).then(function(response) {
     var events = response.result.items;
     appendPre('Upcoming events:');
+    //appendPre("\n");
 
     if (events.length > 0) {
       for (i = 0; i < events.length; i++) {
@@ -105,7 +100,7 @@ function listUpcomingEvents() {
         if (!when) {
           when = event.start.date;
         }
-        appendPre(event.summary + ' (' + when + ')')
+        appendPre("    " + (i+1) + ". " + event.summary);
       }
     } else {
       appendPre('No upcoming events found.');

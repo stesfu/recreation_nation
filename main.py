@@ -126,10 +126,15 @@ class LoginHandler(webapp2.RequestHandler):
             # Ask user to sign in to Google
             self.response.write(google_login_template.render({ "login_url": login_url }))
 
+class TestHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_current_directory.get_template("templates/index.html")
+        self.response.write(template.render())
 
 app = webapp2.WSGIApplication([
     ('/', LoginHandler),
     ('/welcome', WelcomeHandler),
     ('/signup', SignUpHandler),
     ('/forum', ForumHandler),
+    ('/test', TestHandler)
 ], debug=True)

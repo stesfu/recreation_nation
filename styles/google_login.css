@@ -19,6 +19,7 @@ h3{
 body{
   background-image: url("/media/lmulion.jpg");
   background-size: cover;
+  position: fixed;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
