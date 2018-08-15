@@ -1,6 +1,5 @@
 // Client ID and API key from the Developer Console
 const CLIENT_ID = '859286274012-7aq08cpvbob3a2p340r6lrm7h545nq4g.apps.googleusercontent.com';
-const API_KEY = 'AIzaSyDM0q8U_ydQ7wJv-FB7F71HSJpHyQhtlco';
 
 // Array of API discovery doc URLs for APIs used by the quickstart
 const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
@@ -92,6 +91,7 @@ function listUpcomingEvents() {
   }).then(function(response) {
     var events = response.result.items;
     appendPre('Upcoming events:');
+    //appendPre("\n");
 
     if (events.length > 0) {
       for (i = 0; i < events.length; i++) {
@@ -100,7 +100,7 @@ function listUpcomingEvents() {
         if (!when) {
           when = event.start.date;
         }
-        appendPre(event.summary)
+        appendPre("    " + (i+1) + ". " + event.summary);
       }
     } else {
       appendPre('No upcoming events found.');

@@ -22,6 +22,11 @@ a:link {
     text-decoration: none;
 }
 
+#content{
+  white-space:pre-wrap;
+  margin: 20px;
+}
+
 #h1{
   width: 100vw;
   padding-top: 20px;
