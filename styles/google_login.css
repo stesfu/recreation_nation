@@ -25,8 +25,7 @@ body{
 }
 .boxed {
   border: 10px solid white;
-  position: fixed;
-  margin: 100pt 100pt 200pt 135pt;
+  margin: 250pt 0pt 100pt 470pt;
   height: 500pt;
   width: 1000pt;
 }
