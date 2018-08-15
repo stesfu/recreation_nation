@@ -7,10 +7,9 @@ const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
 const SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
-
 const authorizeButton = document.getElementById('authorize_button');
-
 const events = document.querySelector('#content')
+
 
 
 /**
@@ -48,6 +47,7 @@ function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     authorizeButton.style.display = 'none';
     listUpcomingEvents();
+    createButtons();
   } else {
     authorizeButton.style.display = 'block';
   }
@@ -100,7 +100,14 @@ function listUpcomingEvents() {
         }
         var d = new Date(when);
         //var formatted_time = d.toLocaleString();
-        appendPre("    " + (i+1) + ". " + event.summary + " on " + formatTime(d));
+        var node = document.createElement("LI");                 // Create a <li> node
+        var textnode = document.createTextNode("" + event.summary + " on " + formatTime(d) + "\t\t\t\t\t\t");
+        node.appendChild(textnode);
+        const button = document.createElement("button");
+        button.innerHTML = "Sign Up for: " + event.summary;
+        node.appendChild(button);
+        document.getElementById("content").appendChild(node);
+        //appendPre("    " + (i+1) + ". " + event.summary + " on " + formatTime(d));
 
         appendPre('\n');
       }
@@ -109,6 +116,13 @@ function listUpcomingEvents() {
     }
   });
 }
+
+function createButtons(){
+   const button = document.querySelectorAll('LI');
+   button.forEach
+ }
+
+
 
 //Creates a readable timestamp
 function formatTime(time) {

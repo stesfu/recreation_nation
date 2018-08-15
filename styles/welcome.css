@@ -6,7 +6,6 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2fr 40px 10fr 10fr;
   grid-gap: 5px;
-
 }
 div,h1{
   background-color: rgb(28,56,88);
