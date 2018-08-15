@@ -12,6 +12,12 @@ var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
 
+const events = document.querySelector('#listedEvents')
+
+
+events.innerHTML = listUpcomingEvents()
+
+
 /**
  *  On load, called to load the auth2 library and API client library.
  */
