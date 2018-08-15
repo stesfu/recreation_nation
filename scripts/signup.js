@@ -11,6 +11,12 @@ const SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
 const authorizeButton = document.getElementById('authorize_button');
 
+const events = document.querySelector('#listedEvents')
+
+
+events.innerHTML = listUpcomingEvents()
+
+
 /**
  *  On load, called to load the auth2 library and API client library.
  */

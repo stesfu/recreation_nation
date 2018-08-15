@@ -3,7 +3,7 @@ body {
   margin: 0;
   display: grid;
   font-family: 'Do Hyeon', sans-serif;
-  grid-template-columns: 10fr 10fr 10fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2fr 40px 10fr 10fr;
   grid-gap: 5px;
 
