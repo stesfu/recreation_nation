@@ -107,4 +107,6 @@ a:link {
   text-shadow: 3px 3px 3px black;
   box-shadow: 0 6px 10px 0 black;
   background-color: inherit;
+  margin-left: 100pt;
+  margin-bottom: 50pt;
 }

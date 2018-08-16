@@ -19,6 +19,9 @@ a {
 a:link {
     text-decoration: none;
 }
+section{
+  font-family: 'Titillium Web', sans-serif;
+}
 
 #h1{
   width: 100vw;
@@ -79,8 +82,8 @@ a:link {
   background-color: white;
   padding: 10px;
   margin: 10px;
-  border-radius: 10px;
-  box-shadow:  0 6px 10px 0 rgb(137,60,62);
+  border-radius: 5px;
+  box-shadow: 0 6px 5px 0 rgb(150,150,150);
   grid-column: 1 /span 3;
   grid-row: 3;
 }
@@ -92,19 +95,19 @@ a:link {
   height: 50%;
   background-color: white;
   margin: 10px;
+  border-radius: 5px;
   padding: 0px 0px 0px 10px;
   height: 200px;
   padding: 5px;
-  border-radius: 10px;
-  box-shadow:  0 6px 10px 0 rgb(137,60,62);
+  box-shadow: 0 6px 5px 0 rgb(150,150,150);
 }
 .textpost {
   background-color: white;
   height: 150px;
   margin: 10px;
-  box-shadow:  0 6px 10px 0 rgb(137,60,62);
+  box-shadow: 0 6px 5px 0 rgb(150,150,150);
   padding: 5px 30px 5px 30px;
-  border-radius: 30px;
+  border-radius: 5px;
   font-size: 20px;
   overflow: auto;
   word-wrap: break-word;
@@ -112,7 +115,6 @@ a:link {
 #console {
   grid-row: 3;
   grid-column: 1 / span 1;
-  border-radius: 0;
   background-color: rgb(28,56,88);
 }
 #feed {
