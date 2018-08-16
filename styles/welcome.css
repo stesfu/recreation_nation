@@ -2,17 +2,18 @@ body {
   height:100vh;
   margin: 0;
   display: grid;
-  font-family: 'M PLUS 1p', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 5fr 40px 10fr 10fr;
   grid-gap: 5px;
 }
 div{
-  background-color: rgb(100,208,250);
-  color: white;
+  background-color: rgb(28,56,88);
+  color:white;
+
 }
 h1{
-  background-color: rgb(100,208,250);
+  background-color: rgb(28,56,88);
   color: white;
 }
 
@@ -28,7 +29,7 @@ a:link {
 
 #h1{
   width: 100vw;
-  padding-top: 20px;
+  padding-top: 10px;
   font-size: 60px;
   color: white;
   font-style: italic;
@@ -37,15 +38,18 @@ a:link {
   background-repeat: no-repeat;
   background-image: url("/media/recnatheader2.png");
   background-position: center;
-  font-family: 'M PLUS 1p', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
   grid-column:1 / span 3;
   grid-row:1;
 }
 #main{
   grid-row: 2;
   font-size: 20px;
-  padding-top: 10px;
-  font-family: 'M PLUS 1p', sans-serif;
+  padding-top: 5px;
+  color: black;
+  background-color: rgb(132,151,172);
+  text-shadow: 1px 1px 1px white;
+  font-family: 'Titillium Web', sans-serif;
   text-align: center;
   grid-column: 1;
 }
@@ -53,8 +57,10 @@ a:link {
 #signup{
   grid-row: 2;
   font-size: 20px;
-  padding-top: 10px;
-  font-family: 'M PLUS 1p', sans-serif;
+  padding-top: 5px;
+  text-shadow: 1px 1px 1px white;
+  background-color: rgb(132,151,172);
+  font-family: 'Titillium Web', sans-serif;
   text-align: center;
   grid-column: 2;
 }
@@ -62,8 +68,10 @@ a:link {
 #forum{
   grid-row:2;
   font-size: 20px;
-  padding-top: 10px;
-  font-family: 'M PLUS 1p', sans-serif;
+  padding-top: 5px;
+  text-shadow: 1px 1px 1px white;
+  background-color: rgb(132,151,172);
+  font-family: 'Titillium Web', sans-serif;
   text-align: center;
   grid-column: 3;
 }
