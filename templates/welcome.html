@@ -3,16 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>Home Page</title>
+    <link rel ="shortcut icon" href="/media/favicon.ico"/>
     <link rel="stylesheet"href="/styles/welcome.css">
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Graduate" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p|Titillium+Web" rel="stylesheet">
   </head>
   <body>
     <div id="h1">
       <section id="logout">
         Signed in as {{ username }}. <a id="sign_out_button" href="{{ logout_url }}"><span>Sign out?</span></a>
       </section>
-      RECREATION NATION
     </div>
 
     <div id="main">
@@ -28,19 +29,19 @@
     </div>
 
     <div id="schedule">
-      <h2>Schedule</h2>
+      <h2>[ Schedule ]</h2>
       <iframe src="https://calendar.google.com/calendar/b/1/embed?showTitle=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=recreation.nation7%40gmail.com&amp;color=%231B887A&amp;ctz=America%2FLos_Angeles" style="border-width:10" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
 
     <div id="playerinfo">
-      <h7>Player Information</h7>
+      <h7> [ Player Information ] </h7>
       <p>User: {{ username}}</p>
       <img id="profPic" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
       <p>Currently Signed up for: </p>
     </div>
 
     <div id="locations">
-      <h2>Locations</h2>
+      <h2> [ Locations ] </h2>
       <h3>Drollinger (Leavey) Field</h3>
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d827.2333067012368!2d-118.4206417505564!3d33.96855571413006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b096f3690475%3A0x1ee77702237e7e64!2sDrollinger+Field!5e0!3m2!1sen!2sus!4v1534200710975" width="400" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
       <p>Located behind McKay Hall, Drollinger Field is a perfect place for soccer or any other activity needing alot of open space</p>

@@ -3,7 +3,7 @@ body {
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 40px 10fr;
+  grid-template-rows: 2.5fr 40px 10fr;
   grid-gap: 5px;
 
 }
@@ -29,20 +29,26 @@ a:link {
 
 #h1{
   width: 100vw;
-  padding-top: 20px;
+  padding-top: 10px;
   font-size: 60px;
   color: white;
   font-style: italic;
   text-align: center;
-  font-family: 'Do Hyeon', sans-serif;
+  background-size:auto;
+  background-repeat: no-repeat;
+  background-image: url("/media/recnatheader2.png");
+  background-position: center;
+  font-family: 'Lato', sans-serif;
   grid-column:1 / span 3;
   grid-row:1;
 }
 #main{
   grid-row: 2;
   font-size: 20px;
-  padding-top: 10px;
-  font-family: 'Do Hyeon', sans-serif;
+  padding-top: 5px;
+  background-color: rgb(132,151,172);
+  text-shadow: 1px 1px 1px white;
+  font-family: 'Lato', sans-serif;
   text-align: center;
   grid-column: 1;
 }
@@ -50,8 +56,10 @@ a:link {
 #signup{
   grid-row: 2;
   font-size: 20px;
-  padding-top: 10px;
-  font-family: 'Do Hyeon', sans-serif;
+  padding-top: 5px;
+  text-shadow: 1px 1px 1px white;
+  background-color: rgb(132,151,172);
+  font-family: 'Lato', sans-serif;
   text-align: center;
   grid-column: 2;
 }
@@ -59,8 +67,10 @@ a:link {
 #forum{
   grid-row:2;
   font-size: 20px;
-  padding-top: 10px;
-  font-family: 'Do Hyeon', sans-serif;
+  padding-top: 5px;
+  text-shadow: 1px 1px 1px white;
+  background-color: rgb(132,151,172);
+  font-family: 'Lato', sans-serif;
   text-align: center;
   grid-column: 3;
 }
