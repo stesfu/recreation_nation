@@ -27,6 +27,7 @@ class WelcomeHandler(webapp2.RequestHandler):
         current_user = User.query().filter(User.email == user.email()).get()
         fields = {
             "username": current_user.username,
+            "name": current_user.name,
             "logout_url": logout_url,
             "email" : current_user.email
         }
@@ -73,11 +74,16 @@ class SignUpHandler(webapp2.RequestHandler):
                 if not new_event.key in current_user.schedule:
                     current_user.schedule.append(new_event.key)
                     current_user.put()
+        eventList = ""
+        for event in current_user.schedule:
+            curEvent = Event.query().filter(Event.key == event).get()
+            eventList += curEvent.activity + " on " + curEvent.time + "\n"
         fields = {
             "username": current_user.username,
+            "name": current_user.name,
             "logout_url": logout_url,
             "email" : current_user.email,
-            "activities" : current_user.schedule
+            "activities" : eventList
         }
         self.response.write(signup_template.render(fields))
 

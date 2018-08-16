@@ -108,3 +108,9 @@ a:link {
   box-shadow: 0 6px 10px 0 black;
   background-color: inherit;
 }
+
+#activities{
+  white-space: pre;
+  text-align: left;
+  padding-left: 70px;
+}

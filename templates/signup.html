@@ -38,10 +38,10 @@
   </div>
   <div id="playerinfo">
     <h7>Player Information</h7>
-    <p>User: {{ username}}</p>
+    <p>User: {{ name }}</p>
     <img id="profPic" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
     <p>Currently Signed up for: </p>
-    <p> {{ activities }} </p>
+    <p id="activities"> {{activities }} </p>
   </div>
   <script src="/scripts/client_api_key.js"></script>
   <script src="/scripts/signup.js"></script>
