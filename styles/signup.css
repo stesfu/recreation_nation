@@ -110,3 +110,9 @@ a:link {
   margin-left: 100pt;
   margin-bottom: 50pt;
 }
+
+#activities{
+  white-space: pre;
+  text-align: left;
+  padding-left: 70px;
+}
