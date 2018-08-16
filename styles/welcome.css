@@ -4,7 +4,7 @@ body {
   display: grid;
   font-family: 'Titillium Web', sans-serif;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 5fr 40px 10fr 25fr;
+  grid-template-rows: 10fr 40px 10fr 25fr;
   grid-gap: 5px;
   width: 100vw;
 }
@@ -32,8 +32,8 @@ a:link {
   box-shadow: 7px 7px 7px black;
 }
 #h1{
-  width: 100vw;
-  padding-top: 10px;
+  padding-top: 20px;
+  margin: 0px;
   font-size: 60px;
   color: white;
   font-style: italic;
@@ -82,6 +82,7 @@ a:link {
 
 #schedule{
   grid-row:3 /span 2;
+  font-size: 15pt;
   grid-column: 1 / span 2;
   text-align: center;
   overflow: auto;
@@ -90,6 +91,7 @@ a:link {
 #playerinfo{
   grid-row: 3;
   grid-column: 3;
+  font-size: 15pt;
   padding-top: 10px;
   text-align: center;
 }

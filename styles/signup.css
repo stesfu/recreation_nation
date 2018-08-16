@@ -3,9 +3,12 @@ body {
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  font-family: 'Titillium Web', sans-serif;
   grid-template-rows: 2.5fr 40px 10fr;
   grid-gap: 5px;
-
+}
+section {
+  list-style-position: inside;
 }
 div,h1{
   background-color: rgb(28,56,88);
@@ -33,7 +36,6 @@ a:link {
   font-size: 60px;
   color: white;
   font-style: italic;
-  text-align: center;
   background-size:auto;
   background-repeat: no-repeat;
   background-image: url("/media/recnatheader2.png");
@@ -86,6 +88,7 @@ a:link {
 #playerinfo{
   grid-row: 3;
   grid-column: 3;
+  font-size: 15pt;
   padding-top: 10px;
   text-align: center;
 }
@@ -93,7 +96,13 @@ a:link {
   width: 100px;
 }
 #submit{
-  background-color: rgb(137,60,62);
-  padding: 10px;
-  margin: 10px;
+  border: 5px solid white;
+  color: white;
+  margin-bottom: 10pt;
+  padding: 2pt 16pt 2pt 16pt;
+  font-size: 40px;
+  font-family: 'Do Hyeon';
+  text-shadow: 3px 3px 3px black;
+  box-shadow: 0 6px 10px 0 black;
+  background-color: inherit;
 }
