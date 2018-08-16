@@ -6,6 +6,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 5fr 40px 10fr 10fr;
   grid-gap: 5px;
+  width: 100vw;
 }
 div{
   background-color: rgb(28,56,88);
@@ -27,6 +28,9 @@ a:link {
     text-decoration: none;
 }
 
+#calendar{
+  box-shadow: 7px 7px 7px black;
+}
 #h1{
   width: 100vw;
   padding-top: 10px;
@@ -104,4 +108,10 @@ a:link {
 }
 #profPic{
   width: 100px;
+}
+#PI{
+  font-size: 1.7em;
+  text-shadow: 1px 1px 1px white;
+
+
 }
