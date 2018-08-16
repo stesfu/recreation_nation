@@ -2,6 +2,7 @@ import webapp2
 import os
 import jinja2
 import time
+from collections import OrderedDict
 from RecNation_models import Post, User, Event
 from content_management import populate_feed, logout_url, login_url
 from google.appengine.ext import ndb
@@ -58,26 +59,27 @@ class SignUpHandler(webapp2.RequestHandler):
         user = users.get_current_user()
         current_user = User.query().filter(User.email == user.email()).get()
         activities = self.request.get("events").split("_")
-        if activities >= 1 and activities[0] is not "":
+        if activities >= 1 and activities[0] != "":
             for event in activities:
                 actEvent = event.split("=")[0]
                 timeEvent = event.split("=")[1]
                 new_event = Event(activity = actEvent, time = timeEvent)
-                new_event.put()
-                if new_event in current_user.schedule:
-                    pass
-                else:
+                if not Event.query().filter(Event.time == new_event.time).get():
+                    new_event.put()
+
+                time.sleep(.2)
+                new_event = Event.query().filter(
+                    Event.activity == new_event.activity and Event.time == new_event.time).get()
+                if not new_event.key in current_user.schedule:
                     current_user.schedule.append(new_event.key)
                     current_user.put()
-        #eventActivity = Event.query().filter(Event.key == current_user.schedule).get()
         fields = {
             "username": current_user.username,
             "logout_url": logout_url,
             "email" : current_user.email,
-            #"activity" : eventActivity
+            "activities" : current_user.schedule
         }
         self.response.write(signup_template.render(fields))
-
 
 class ForumHandler(webapp2.RequestHandler):
     def get(self):
