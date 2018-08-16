@@ -14,3 +14,7 @@ class Post(ndb.Model):
     author = ndb.KeyProperty(User, required=True)
     content = ndb.StringProperty(required=True)
     time = ndb.DateTimeProperty(auto_now_add=True)
+
+class Settings(ndb.Model):
+    name = ndb.StringProperty()
+    value = ndb.StringProperty()
