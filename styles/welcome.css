@@ -5,7 +5,7 @@ body {
   font-family: 'Do Hyeon', sans-serif;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2fr 40px 10fr 10fr;
-  grid-gap: 5px;
+  grid-gap: 2px;
 }
 div,h1{
   background-color: rgb(28,56,88);

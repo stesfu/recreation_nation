@@ -82,7 +82,7 @@ function listUpcomingEvents() {
     'timeMin': (new Date()).toISOString(),
     'showDeleted': false,
     'singleEvents': true,
-    'maxResults': 30,
+    'maxResults': 15,
     'orderBy': 'startTime'
   }).then(function(response) {
     var events = response.result.items;
@@ -100,17 +100,18 @@ function listUpcomingEvents() {
         var d = new Date(when);
         //var formatted_time = d.toLocaleString();
         var node = document.createElement("LI");                 // Create a <li> node
-        var textnode = document.createTextNode("" + event.summary + " on " + formatTime(d) + "\t\t\t\t\t\t");
-        node.appendChild(textnode);
+        //var textnode = document.createTextNode(event.summary + " on " + formatTime(d) + "\t\t\t\t\t\t");
+        //node.appendChild(textnode);
 
         var checkbox=document.createElement("input");
         checkbox.type="checkbox";
-        checkbox.id="checkbox"+(i+1);
+        checkbox.name=event.summary + "=" + formatTime(d);
         const label = document.createElement("label");
-        label.for="checkbox"+(i+1);
-        label.innerHTML = "Sign Up for: " + event.summary;
+        // label.for="checkbox";
+        label.appendChild(document.createTextNode(" Sign Up for: " + event.summary + " on " + formatTime(d)));
         // button.setAttribute("id", "buttons");
         node.appendChild(checkbox);
+        node.appendChild(label);
         document.getElementById("content").appendChild(node);
         //appendPre("    " + (i+1) + ". " + event.summary + " on " + formatTime(d));
 
@@ -159,8 +160,13 @@ function imgError(image) {
     return true;
 }
 
-// allButtons.forEach(item => item.addEventListener("click", alert("CLICKED!")));
-
-function addEvent(){
-  console.log("Gottem");
+function combineChecked(){
+  checked = document.querySelectorAll("ol input");
+  let listOfChecked = [];
+  checked.forEach(item => {
+    if (item.checked) {
+      listOfChecked.push(item.name);
+    }
+  });
+  location.href = `/signup?events=${ listOfChecked.join("_") }`
 }

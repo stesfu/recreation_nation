@@ -2,7 +2,7 @@ import webapp2
 import os
 import jinja2
 import time
-from RecNation_models import Post, User
+from RecNation_models import Post, User, Event
 from content_management import populate_feed, logout_url, login_url
 from google.appengine.ext import ndb
 from google.appengine.api import users
@@ -57,12 +57,27 @@ class SignUpHandler(webapp2.RequestHandler):
             "templates/signup.html")
         user = users.get_current_user()
         current_user = User.query().filter(User.email == user.email()).get()
+        activities = self.request.get("events").split("_")
+        print(activities)
+        if activities >= 1 and activities[0] is not "":
+            for event in activities:
+                print(event.split("=")[0])
+                print(event.split("=")[1])
+                actEvent = event.split("=")[0]
+                timeEvent = event.split("=")[1]
+                new_event = Event(activity = actEvent, time = timeEvent)
+                new_event.put()
+                if new_event not in current_user.schedule:
+                    current_user.schedule.append(new_event.key)
+                    current_user.put()
         fields = {
             "username": current_user.username,
             "logout_url": logout_url,
-            "email" : current_user.email
+            "email" : current_user.email,
+            "events" : current_user.schedule
         }
         self.response.write(signup_template.render(fields))
+
 
 class ForumHandler(webapp2.RequestHandler):
     def get(self):
@@ -131,10 +146,15 @@ class TestHandler(webapp2.RequestHandler):
         template = jinja_current_directory.get_template("templates/index.html")
         self.response.write(template.render())
 
+class AddEventsHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write(self.request.get("events"))
+
 app = webapp2.WSGIApplication([
     ('/', LoginHandler),
     ('/welcome', WelcomeHandler),
     ('/signup', SignUpHandler),
     ('/forum', ForumHandler),
-    ('/test', TestHandler)
+    ('/test', TestHandler),
+    ('/addEvent', AddEventsHandler)
 ], debug=True)

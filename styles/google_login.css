@@ -19,16 +19,14 @@ h3{
 body{
   background-image: url("/media/lmulion.jpg");
   background-size: cover;
-  position: absolute;
-  top:20%;
-  right: 50%;
-  bottom: 20%;
-  left: 20%;
+  position: fixed;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 .boxed {
   border: 10px solid white;
+  position: fixed;
+  margin: 100pt 100pt 200pt 135pt;
   height: 500pt;
   width: 1000pt;
 }

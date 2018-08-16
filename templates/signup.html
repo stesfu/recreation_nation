@@ -28,16 +28,17 @@
   <div id="events">
     <button id="authorize_button" style="display: none;">Authorize</button>
     <h1>Upcoming events: </h1>
-    <form method="get" action="/artist">
-      <ol id="content"></ol>
-      <input type="Submit">
-    </form>
+
+        <ol id="content"></ol>
+        <input id="submit" type="Submit" onclick="combineChecked()">
+
   </div>
   <div id="playerinfo">
     <h7>Player Information</h7>
     <p>User: {{ username}}</p>
     <img id="profPic" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
     <p>Currently Signed up for: </p>
+    <p> {{ events }} </p>
   </div>
   <script src="/scripts/client_api_key.js"></script>
   <script src="/scripts/signup.js"></script>

@@ -2,6 +2,7 @@ from google.appengine.ext import ndb
 
 class Event(ndb.Model):
     activity = ndb.StringProperty(required=True)
+    time = ndb.StringProperty(required=True)
 
 class User(ndb.Model):
     name = ndb.StringProperty(required=True)

@@ -82,3 +82,8 @@ a:link {
 #profPic{
   width: 100px;
 }
+#submit{
+  background-color: rgb(137,60,62);
+  padding: 10px;
+  margin: 10px;
+}
