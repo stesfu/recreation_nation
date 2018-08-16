@@ -58,23 +58,23 @@ class SignUpHandler(webapp2.RequestHandler):
         user = users.get_current_user()
         current_user = User.query().filter(User.email == user.email()).get()
         activities = self.request.get("events").split("_")
-        print(activities)
         if activities >= 1 and activities[0] is not "":
             for event in activities:
-                print(event.split("=")[0])
-                print(event.split("=")[1])
                 actEvent = event.split("=")[0]
                 timeEvent = event.split("=")[1]
                 new_event = Event(activity = actEvent, time = timeEvent)
                 new_event.put()
-                if new_event not in current_user.schedule:
+                if new_event in current_user.schedule:
+                    pass
+                else:
                     current_user.schedule.append(new_event.key)
                     current_user.put()
+        #eventActivity = Event.query().filter(Event.key == current_user.schedule).get()
         fields = {
             "username": current_user.username,
             "logout_url": logout_url,
             "email" : current_user.email,
-            "events" : current_user.schedule
+            #"activity" : eventActivity
         }
         self.response.write(signup_template.render(fields))
 

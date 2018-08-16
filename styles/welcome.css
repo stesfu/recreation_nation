@@ -4,7 +4,7 @@ body {
   display: grid;
   font-family: 'Titillium Web', sans-serif;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 5fr 40px 10fr 10fr;
+  grid-template-rows: 5fr 40px 10fr 25fr;
   grid-gap: 5px;
   width: 100vw;
 }
@@ -84,6 +84,7 @@ a:link {
   grid-row:3 /span 2;
   grid-column: 1 / span 2;
   text-align: center;
+  overflow: auto;
 }
 
 #playerinfo{

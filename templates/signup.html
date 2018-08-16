@@ -29,7 +29,7 @@
   <div id="events">
     <button id="authorize_button" style="display: none;">Authorize</button>
     <h1>Upcoming events: </h1>
-
+    <p>Check the events you want to sign up for and then click submit at the bottom!</p>
         <ol id="content"></ol>
         <input id="submit" type="Submit" onclick="combineChecked()">
 
@@ -39,7 +39,7 @@
     <p>User: {{ username}}</p>
     <img id="profPic" src="https://pikmail.herokuapp.com/{{ email }}?size=100" onerror="imgError(this);"/>
     <p>Currently Signed up for: </p>
-    <p> {{ events }} </p>
+    <p> {{ activity }} </p>
   </div>
   <script src="/scripts/client_api_key.js"></script>
   <script src="/scripts/signup.js"></script>
