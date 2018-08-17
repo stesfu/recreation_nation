@@ -12,7 +12,7 @@ div{
 body{
   background-image: url("/media/signupback.png");
   background-size: cover;
-  position: fixed;
+  /* position: fixed; */
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -33,7 +33,9 @@ a:link {
 #welcome{
   border: 10px solid white;
   box-shadow:  0 6px 10px 0 black;
-  padding: 20pt;
+  /* padding: 20pt; */
+  width: 50%;
+  margin-left: 25.5%;
 }
 #name_box, #user_box{
   width: 200pt;
@@ -57,4 +59,6 @@ a:link {
   background-color: inherit;
 }
 #top_row{
-  margin: 100pt 100pt 100pt 400pt;
+  margin-left: 0%;
+
+}
