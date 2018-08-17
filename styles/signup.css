@@ -1,5 +1,4 @@
 body {
-  height:100vh;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -31,7 +30,6 @@ a:link {
 }
 
 #h1{
-  width: 100vw;
   padding-top: 10px;
   font-size: 60px;
   color: white;
