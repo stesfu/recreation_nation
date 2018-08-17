@@ -33,8 +33,10 @@ body{
 .boxed {
   border: 10px solid white;
   position: fixed;
-  margin: 10%;
-  height: 70%;
+  margin: 0;
+  margin-left: 10%;
+  margin-top: 10%;
+  height: 80%;
   width: 80%;
 }
 
