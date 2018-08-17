@@ -5,6 +5,9 @@ body {
   font-family: 'Titillium Web', sans-serif;
   grid-template-rows: 2.5fr 40px 10fr;
   grid-gap: 5px;
+  height: 100vh;
+  width: 100vw;
+
 }
 section {
   list-style-position: inside;
