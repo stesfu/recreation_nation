@@ -8,7 +8,7 @@ login_url = users.create_login_url('/')
 
 def format_posts(posts):
     return [(User.query().filter(User.key == post.author).get().username,
-            post.content, post.time) for post in posts]
+        post.content, post.time) for post in posts]
 
 def populate_feed(current_user):
     feed_fields = {
