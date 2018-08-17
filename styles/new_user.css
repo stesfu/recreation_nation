@@ -10,11 +10,7 @@ div{
 }
 
 body{
-  background-image: url("/media/signupback.png");
-  background-size: cover;
-  position: fixed;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-color: rgb(28,56,88);
 }
 
 a:hover {
